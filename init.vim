@@ -27,6 +27,7 @@ nnoremap <leader>pv :wincmd v<bar> :Ex<CR>
 nnoremap <leader>ps :Rg<SPACE>
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
+cnoremap <expr> <space>  wildmenumode()?"<Down>":"\<space>"
 
 augroup remember_folds
   autocmd!
