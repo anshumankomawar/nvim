@@ -1,4 +1,4 @@
-set autochdir
+" set autochdir
 set exrc
 set relativenumber
 set nohlsearch

@@ -2,17 +2,26 @@ syntax on
 filetype plugin indent on
 
 call plug#begin()
-"Plug 'zxqfl/tabnine-vim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'pgdouyon/vim-yin-yang'
+
+"Plug 'pgdouyon/vim-yin-yang'
 Plug 'morhetz/gruvbox'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'preservim/nerdtree'
+
+"Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 Plug 'tpope/vim-fugitive'
+
+" telescope requirements...
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+"Plug 'preservim/nerdtree'
 call plug#end()
 
 """""GENERAL VIM REMAPS"""""
@@ -31,8 +40,8 @@ cnoremap <expr> <space>  wildmenumode()?"<Down>":"\<space>"
 
 augroup remember_folds
   autocmd!
-  autocmd BufWinLeave * mkview
-  autocmd BufWinEnter * silent! loadview
+  autocmd FileType python,go,c,cpp,java BufWinLeave * mkview
+  autocmd FileType python,go,c,cpp,java BufWinEnter * silent! loadview
 augroup END
 """"""""""""""""""""""""""""
 source ~/.config/nvim/terminal.vim
