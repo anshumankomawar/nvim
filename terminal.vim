@@ -18,13 +18,21 @@ function! TerminalWrapper(command) abort
 	exec 'startinsert'
 endfunction
 
+function! TerminalTab() abort
+  exec 'tabnew'
+  exec 'terminal'
+  exec 'startinsert'
+endfunction
+
 let g:split_term_style = 'horizontal'
 let g:split_term_resize_cmd = 'resize 20'
 """""""""""""""""""""""""""""
 
 """""EMPTY TERMINAL"""""
-command! -nargs=0 CreateTerminal call TerminalWrapper(printf(''))
-nnoremap <leader>t :CreateTerminal<CR>
+command! -nargs=0 CreateTerminalTab call TerminalTab()
+nnoremap <C-t> :CreateTerminalTab<CR>
+"command! -nargs=0 CreateTerminal call TerminalWrapper(printf(''))
+"nnoremap <C-t> :split<CR> :terminal<CR>
 """"""""""""""""""""""""
 
 """""LANGUAGE COMPILE AND RUN CONFIGURATION"""""
@@ -46,7 +54,7 @@ command! -nargs=0 GOBUILD call TerminalWrapper(printf('go build %s', expand('%')
 command! -nargs=0 GOINSTALL call TerminalWrapper(printf('go install')) 
 
 " AWS "
-command! -nargs=0 AWSDEPLOY call TerminalWrapper(printf('sam deploy'))
+command! -nargs=0 AWSDEPLOY call TerminalWrapper(printf('sam build && sam deploy'))
 command! -nargs=0 AWSLOCAL call TerminalWrapper(printf('sam build && sam local start-api --skip-image-pull'))
 """"""""""""""""""""""""""""""""""""""""""""""""
 
