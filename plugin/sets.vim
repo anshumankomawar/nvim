@@ -1,6 +1,5 @@
 set autochdir
 set exrc
-set relativenumber
 set nohlsearch
 set hidden
 set noerrorbells
@@ -17,13 +16,11 @@ set undodir=~/.vim/undodir
 set undofile
 set incsearch
 set scrolloff=8
-set noshowmode
 set signcolumn=no
 set cursorline
 set updatetime=50
 set shortmess+=c
-set colorcolumn=80
-set hidden
+"set colorcolumn=80
 set splitright
 set splitbelow
 set fillchars=vert:\ 
@@ -32,3 +29,4 @@ set noruler
 set laststatus=0
 set noshowcmd
 set cmdheight=1
+let &statusline='%#Normal# '

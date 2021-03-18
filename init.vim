@@ -5,11 +5,13 @@ call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
 
+Plug 'maxmellon/vim-jsx-pretty'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 
-Plug 'pgdouyon/vim-yin-yang'
-Plug 'joshdick/onedark.vim'
+"Plug 'pgdouyon/vim-yin-yang'
+"Plug 'joshdick/onedark.vim'
+Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 
 "Plug 'junegunn/fzf.vim'
@@ -36,6 +38,7 @@ nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex<CR>
 nnoremap <leader>ps :Rg<SPACE>
 nnoremap <Tab> :tabnext<CR>
+nnoremap <S-Tab> :tabprevious<cr>
 nnoremap <leader>t :tabnew<CR>
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
