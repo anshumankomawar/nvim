@@ -44,6 +44,7 @@ command! -nargs=0 MYPY call TerminalWrapper(printf('mypy %s', expand('%')))
 
 " JAVA "
 command! -nargs=0 JAVA call TerminalWrapper(printf('javac %s && java %s', expand('%'), expand('%:r')))
+command! -nargs=0 JUNIT call TerminalWrapper(printf('javac %s && java org.junit.runner.JUnitCore %s', expand('%'), expand('%:r')))
 
 " C "
 command! -nargs=0 CPP call TerminalWrapper(printf('clang++ -std=c++17 %s -o ./Output/%s.out && .//Output/%s.out', expand('%'), expand('%'), expand('%')))
@@ -92,16 +93,17 @@ augroup JavaToolKit
     autocmd!
     autocmd FileType java nnoremap <leader>fj :w<CR> :!javac % && java %<CR>
     autocmd FileType java nnoremap <leader>r :JAVA<CR>
+    autocmd FileType java nnoremap <leader>tc :JUNIT<CR>
 augroup END
 """""""""""""""""""""""""""
 
 """""COMMENT AUTOCOMMANDS"""""
-augroup Comments
-    autocmd!
-    autocmd FileType go,java,javascript nnoremap <leader>c I//<Space><esc>
-    autocmd FileType python nnoremap <leader>c I#<Space><esc>
-
-    autocmd FileType go,java,javascript nnoremap <leader>rc I<esc><c-v>2ld<esc>
-    autocmd FileType python nnoremap <leader>rc I<esc>d2l<esc>
-augroup END
+"augroup Comments
+"    autocmd!
+"    autocmd FileType go,java,javascript nnoremap <leader>c I//<Space><esc>
+"    autocmd FileType python nnoremap <leader>c I#<Space><esc>
+"
+"    autocmd FileType go,java,javascript nnoremap <leader>rc I<esc><c-v>2ld<esc>
+"    autocmd FileType python nnoremap <leader>rc I<esc>d2l<esc>
+"augroup END
 """"""""""""""""""""""""""""""

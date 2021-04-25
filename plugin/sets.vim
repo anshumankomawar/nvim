@@ -30,3 +30,5 @@ set laststatus=0
 set noshowcmd
 set cmdheight=1
 let &statusline='%#Normal# '
+set foldmethod=expr
+"set foldexpr=nvim_treesitter#foldexpr()

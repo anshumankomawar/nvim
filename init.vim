@@ -4,20 +4,11 @@ filetype plugin indent on
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
-
-Plug 'maxmellon/vim-jsx-pretty'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-
-"Plug 'pgdouyon/vim-yin-yang'
-"Plug 'joshdick/onedark.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
-
-"Plug 'junegunn/fzf.vim'
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-
 Plug 'tpope/vim-fugitive'
+Plug 'preservim/nerdcommenter'
+
+Plug 'folke/tokyonight.nvim'
+Plug 'morhetz/gruvbox'
 
 " telescope requirements...
 Plug 'nvim-lua/popup.nvim'
@@ -25,6 +16,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'preservim/nerdtree'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 """""GENERAL VIM REMAPS"""""
