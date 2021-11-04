@@ -16,8 +16,6 @@ local opt = vim.opt         		-- global/buffer/windows-scoped options
 -- General
 -----------------------------------------------------------
 g.mapleader = ' '             -- change leader to a space
-opt.mouse = 'a'               -- enable mouse support
-opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile
 opt.autochdir = true          -- auto change current working dir
 opt.exrc = true
@@ -41,6 +39,7 @@ opt.ignorecase = true         -- ignore case letters when search
 opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.cursorline = true         -- highlight current line
 opt.scrolloff = 8             -- lines below last edited line
+opt.signcolumn = 'no' 
 
 -- remove status line and vertical line
 opt.fillchars = 'vert: '      -- replace vertical chars with ' '
@@ -54,9 +53,9 @@ g['&statusline'] = '%#Normal# ' -- remove uncessary extensions from staus line
 -----------------------------------------------------------
 -- POPUP UI
 -----------------------------------------------------------
-opt.wildmode = {'longest','list','full'}
-opt.wildmenu = true
-opt.wildignore = {'*.pyc', '*_build/*', '**/coverage/*', '**/node_modules/*', '**/android/*', '**/iot/*', '**/.git/*'}
+--opt.wildmode = {'longest','list','full'}
+--opt.wildmenu = true
+--opt.wildignore = {'*.pyc', '*_build/*', '**/coverage/*', '**/node_modules/*', '**/android/*', '**/iot/*', '**/.git/*'}
 
 -----------------------------------------------------------
 -- Memory, CPU
@@ -88,14 +87,13 @@ cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 -- remove line lenght marker for selected filetypes
 cmd [[autocmd FileType python,javatext,markdown,html,xhtml,javascript setlocal cc=0]]
 
--- 2 spaces for selected filetypes
---cmd [[ autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2 ]]
 
 -----------------------------------------------------------
 -- NVIM LSP
 -----------------------------------------------------------
 opt.cot = {'menuone','noinsert'}
 g.completion_matching_strategy_list = {'exact', 'substring', 'fuzzy'}
+g.completion_enable_auto_popup = 1
 
 -----------------------------------------------------------
 -- Startup
