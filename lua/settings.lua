@@ -51,9 +51,6 @@ opt.showcmd = false           -- don't show command in status line
 opt.cmdheight = 1             -- lines taken up by command
 g['&statusline'] = '%#Normal# ' -- remove uncessary extensions from staus line
 
--- remove whitespace on save
-cmd [[au BufWritePre * :%s/\s\+$//e]]
-
 -----------------------------------------------------------
 -- POPUP UI
 -----------------------------------------------------------
@@ -81,8 +78,8 @@ cmd [[au VimEnter * highlight EndOfBuffer ctermfg=235 ctermbg=235]]
 -- Tabs, indent
 -----------------------------------------------------------
 opt.expandtab = true      -- use spaces instead of tabs
-opt.shiftwidth = 4        -- shift 4 spaces when tab
-opt.tabstop = 4           -- 1 tab == 4 spaces
+opt.shiftwidth = 2        -- shift 4 spaces when tab
+opt.tabstop = 2           -- 1 tab == 4 spaces
 opt.smartindent = true    -- autoindent new lines
 
 -- don't auto commenting new lines
@@ -92,9 +89,7 @@ cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 cmd [[autocmd FileType python,javatext,markdown,html,xhtml,javascript setlocal cc=0]]
 
 -- 2 spaces for selected filetypes
-cmd [[
-  autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2
-]]
+--cmd [[ autocmd FileType xml,html,xhtml,css,scss,javascript,lua,yaml setlocal shiftwidth=2 tabstop=2 ]]
 
 -----------------------------------------------------------
 -- NVIM LSP
