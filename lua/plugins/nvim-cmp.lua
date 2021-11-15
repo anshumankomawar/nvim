@@ -7,15 +7,15 @@
 
 
 local cmp = require 'cmp'
---local luasnip = require 'luasnip'
+local luasnip = require 'luasnip'
 
 cmp.setup {
   -- load snippet support
-  --snippet = {
-    --expand = function(args)
-      --luasnip.lsp_expand(args.body)
-    --end,
-  --},
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
 
 -- completion settings
   completion = {
@@ -60,7 +60,7 @@ cmp.setup {
   -- load sources, see: https://github.com/topics/nvim-cmp
   sources = {
     { name = 'nvim_lsp' },
-    --{ name = 'luasnip' },
+    { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
   },

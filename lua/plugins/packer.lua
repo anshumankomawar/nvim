@@ -18,8 +18,12 @@ return packer.startup({function(use)
   use 'wbthomason/packer.nvim' -- packer can manage itself
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/completion-nvim'
+
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'L3MON4D3/LuaSnip'
+
   use 'tpope/vim-fugitive'
   use 'preservim/nerdcommenter'
   use 'preservim/nerdtree'
