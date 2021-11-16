@@ -28,7 +28,10 @@ return packer.startup({function(use)
   use 'preservim/nerdcommenter'
   use 'preservim/nerdtree'
   use 'morhetz/gruvbox'
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+  }
 end,
 config = {
   compile_path = fn.stdpath('cache')..'/plugin/packer_compiled.lua',

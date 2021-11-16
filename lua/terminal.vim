@@ -119,3 +119,5 @@ augroup END
 "    autocmd FileType python nnoremap <leader>rc I<esc>d2l<esc>
 "augroup END
 """"""""""""""""""""""""""""""
+
+let g:ft_man_open_mode = 'vert'
