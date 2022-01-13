@@ -6,7 +6,7 @@
   ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
   ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 Neovim init file
-Version: 0.2.1 - 11/14/2021 10:50
+Version: 1.0.0 - 1/3/2022 12:16
 Maintainer: Anshuman Komawar
 Website: https://github.com/anshumankomawar/nvim
 --]]

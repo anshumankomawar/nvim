@@ -15,6 +15,8 @@ local packer = require 'packer'
 
 -- Add packages
 return packer.startup({function(use)
+  use 'github/copilot.vim'
+
   use 'wbthomason/packer.nvim' -- packer can manage itself
   use 'neovim/nvim-lspconfig'
   use 'nvim-lua/completion-nvim'
