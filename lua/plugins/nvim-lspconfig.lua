@@ -59,7 +59,7 @@ end
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 --[[
 Language servers:
@@ -76,7 +76,7 @@ https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#clangd
 -- map buffer local keybindings when the language server attaches
 --]]
 
-local servers = {'gopls', 'pyright', 'clangd'}
+local servers = {'gopls', 'pyright', 'clangd', 'tsserver', 'racket_langserver', 'julials', 'rust_analyzer'}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -86,8 +86,16 @@ end
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    virtual_text = true,
-    signs = true,
-    update_in_insert = true,
+    --virtual_text = false,
+    virtual_text = {
+      source = always,
+      --spacing = 80,
+      --prefix = '',
+    },
+    signs = false,
+    --update_in_insert = true,
   }
 )
+
+--vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil,{focusable=false,scope="cursor"})]]
+--vim.api.nvim_command('autocmd CursorHold * lua vim.lsp.diagnostic.open_float()')

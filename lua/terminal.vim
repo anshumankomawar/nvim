@@ -81,6 +81,14 @@ augroup CppToolKit
 augroup END
 """"""""""""""""""""""""""
 
+"""""CMAKE AUTOCOMMANDS"""""
+augroup CMAKEToolKit 
+    autocmd!
+    autocmd FileType cpp nnoremap <leader>ci :w<CR> :!sed -i '' -e 's/project.*/project(out)/' ./CMakeLists.txt && echo -e "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)\n$(cat ./CMakeLists.txt)" > ./CMakeLists.txt && mkdir build && cd ./build && cmake ..<CR>
+    autocmd FileType cpp nnoremap <leader>cr :w<CR> :!cd ./build && cmake .. && make -j4 && ./out
+augroup END
+""""""""""""""""""""""""""
+
 """""C AUTOCOMMANDS"""""
 augroup CToolKit
     autocmd!

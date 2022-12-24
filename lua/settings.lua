@@ -17,7 +17,7 @@ local opt = vim.opt         		-- global/buffer/windows-scoped options
 -----------------------------------------------------------
 g.mapleader = ' '             -- change leader to a space
 opt.swapfile = false          -- don't use swapfile
-opt.autochdir = true          -- auto change current working dir
+-- opt.autochdir = true          -- auto change current working dir
 opt.exrc = true
 opt.hlsearch = false          -- don't highlight search result
 opt.errorbells = false        -- don't use error bells
@@ -39,7 +39,8 @@ opt.ignorecase = true         -- ignore case letters when search
 opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.cursorline = true         -- highlight current line
 opt.scrolloff = 8             -- lines below last edited line
-opt.signcolumn = 'no' 
+opt.signcolumn = 'no'
+-- opt.colorcolumn = 80
 
 -- remove status line and vertical line
 opt.fillchars = 'vert: '      -- replace vertical chars with ' '
@@ -69,9 +70,20 @@ opt.synmaxcol = 240       -- max column for syntax highlight
 -- Colorscheme
 -----------------------------------------------------------
 cmd [[colorscheme gruvbox]]
-cmd [[au VimEnter * highlight CursorLineNR ctermbg=236 ctermfg=243]]
+cmd [[au VimEnter * highlight CursorLineNR ctermbg=236 ctermfg=243 ]]
 cmd [[au VimEnter * highlight CursorLine ctermbg=236]]
 cmd [[au VimEnter * highlight EndOfBuffer ctermfg=235 ctermbg=235]]
+
+cmd [[highlight DiagnosticError ctermfg=167 guifg=#282828 guibg=#fb4934]]
+cmd [[highlight DiagnosticLineNrError ctermfg=167 guifg=#282828 guibg=#fb4934 gui=bold]]
+cmd [[highlight DiagnosticLineNrWarn ctermfg=167 guifg=#282828 guibg=#fb4934 gui=bold]]
+
+cmd [[ 
+  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
+]]
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -84,7 +96,7 @@ opt.smartindent = true    -- autoindent new lines
 -- don't auto commenting new lines
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 
--- remove line lenght marker for selected filetypes
+-- remove line length marker for selected filetypes
 cmd [[autocmd FileType python,javatext,markdown,html,xhtml,javascript setlocal cc=0]]
 
 

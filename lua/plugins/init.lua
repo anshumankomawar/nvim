@@ -1,0 +1,6 @@
+require('plugins/telescope')
+require('plugins/harpoon')
+require('plugins/treesitter')
+require('plugins/undotree')
+require('plugins/fugitive')
+require('plugins/lsp')

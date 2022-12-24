@@ -18,9 +18,6 @@ map('n', '<leader>h', ':wincmd h<CR>', {noremap = true})
 map('n', '<leader>j', ':wincmd j<CR>', {noremap = true})
 map('n', '<leader>k', ':wincmd k<CR>', {noremap = true})
 map('n', '<leader>l', ':wincmd l<CR>', {noremap = true})
---map('n', '<leader>u', ':UndotreeShow<CR>', {noremap = true})
-map('n', '<leader>pv', ':wincmd v<bar> :Ex<CR>', {noremap = true})
-map('n', '<leader>ps', ':Rg<SPACE>', {noremap = true})
 map('n', '<Tab>', ':tabnext<CR>', {noremap = true})
 map('n', '<S-Tab>', ':tabprevious<CR>', {noremap = true})
 map('n', '<leader>t', ':tabnew<CR>', {noremap = true})
@@ -32,6 +29,21 @@ map('n', '<leader>q', ':xa<CR>', {noremap = true})
 cmd[[command! Format execute 'lua vim.lsp.buf.formatting()']]
 map('v', '<C-c>', '"*y', {noremap = true})
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+-- greatest remap ever
+vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 wildmenumode = function()
     return fn.wildmenumode() ~= 0
 end
@@ -41,7 +53,6 @@ map('c', '<space>', 'wildmenumode() ? "<Down>" : "\\<space>"', {noremap = true, 
 -- Nerdtree shortcuts:
 -----------------------------------------------------------
 map('n', '<leader>.', ':NERDTreeToggle<CR>', default_opts)       -- open/close
-map('n', '<leader>r', ':NERDTreeRefreshRoot<CR>', default_opts)  -- refresh
 
 cmd [[autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif]]
 g.NERDTreeRespectWildIgnore=1
